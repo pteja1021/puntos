@@ -1,0 +1,27 @@
+.site-layout-background{
+    display: flex;
+    max-width: 100%;
+    background-color: #f8ec6a;
+    justify-content: center;
+    padding: 0px !important;
+    background-color: #f0f2f5 !important;
+}
+.site-card-border-less-wrapper {
+    background-color: #ececec;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin: 0;
+    min-width: 70%;
+    border: 1px solid grey;
+}
+.login-card{
+    font-size: 2em;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100% ;
+    margin: 1em auto; 
+}

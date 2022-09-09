@@ -1,0 +1,44 @@
+.sidebar{
+    height: 100vh;
+}
+.logo {
+    max-width: 100%;
+    margin: 0.8em;
+    background: rgba(255, 255, 255, 0);
+    font-size: 2.5em;
+    font-weight: bolder;
+    color: rgb(245, 244, 255);
+}
+.site-layout-background{
+    margin: 0;
+}
+.site-header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around !important;
+    overflow: hidden;
+    border-bottom: 0.2em solid navy;
+}
+.header-points{
+    margin: 0 !important;
+}
+.header-right{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.logout-button {
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2em;
+    margin-left: 0.5em ;
+    box-sizing: border-box;
+}  
+.logout-button:hover{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}

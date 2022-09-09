@@ -1,0 +1,11 @@
+.feed-card{
+    /* background-color: rgb(255, 255, 202) !important; */
+    border: 1px solid black;
+    margin : 0.5em 0em;
+    border-radius: 1em;
+    box-shadow:  0 0 0.1em 0.1em rgb(117, 116, 116);
+    transition-duration: 0.2s;
+}
+.feed-card:hover {
+    transform: scale(1.01) !important;
+}

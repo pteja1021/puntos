@@ -1,0 +1,69 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee{
+  @@map("employee")
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String @db.VarChar(255)
+  email String @db.VarChar(255) @unique
+  company_id Int
+  isAdmin Boolean @default(false)
+  current_points Int 
+  isActive Boolean @default(true)
+  company Company @relation(fields: [company_id], references: [id])
+  appraisalsMade Appraisals[] @relation("receivedFrom")
+  appraisalsGot Appraisals[] @relation("receivedBy")
+}
+
+model Company{
+  @@map("company")
+  id Int @id @default(autoincrement()) 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String @db.VarChar(255)
+  gstin String @db.VarChar(255) @unique
+  monthly_points Int 
+  employees Employee[]
+  allAppraisals Appraisals[] 
+  rewards Rewards[]
+}
+
+model Appraisals{
+  @@map("appraisals")
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  company_id Int
+  from_eid Int
+  to_eid Int
+  points Int
+  title String @db.VarChar(255)
+  description String @db.VarChar(255)
+  from Employee @relation("receivedFrom",fields: [from_eid], references: [id])
+  to Employee @relation("receivedBy",fields: [to_eid], references: [id])
+  company Company @relation(fields: [company_id], references: [id])
+}
+
+model Rewards{
+  @@map("rewards")
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  company_id Int
+  minimum_points Int
+  name String @db.VarChar(255)
+  coupon String 
+  Link String @db.VarChar(255) 
+  company_rewards Company @relation(fields: [company_id], references: [id])
+}
