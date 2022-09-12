@@ -81,9 +81,9 @@ async function makePraise(req,res,next){
                     }
                 })
                 
-                // await axios.post(<your channel url>, {
-                //     text : `${empDetails.name} has appraised ${toEmployeeDetails.name} with ${points} points for ${title} stating ${description}`
-                // })
+                await axios.post(process.env.SLACK_CHANNEL_URL, {
+                    text : `${empDetails.name} has appraised ${toEmployeeDetails.name} with ${points} points for ${title} stating ${description}`
+                })
                 res.json(appraisal)
             }
             catch(err){

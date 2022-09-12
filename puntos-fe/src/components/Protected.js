@@ -4,11 +4,12 @@ import { useQuery } from "@tanstack/react-query"
 import {Space,Spin} from "antd"
 import { isAdmin } from "../apis/employeesApis"
 import { checkIfPresent } from "../apis/initApis"
+import {auth} from "../firebase/firebase"
 const Protected = ({children}) => {
     // eslint-disable-next-line
     const [user,setUser] = useUserInfo()
     const {data,isLoading,isError} = useQuery(["isUserPresent",user.email],checkIfPresent)
-    if (!user.email){
+    if (!auth.currentUser){
         return <Navigate to={'/'} replace />
     }
     if (isLoading){
@@ -28,7 +29,7 @@ const AlreadyPresentProtection = ({children}) => {
     // eslint-disable-next-line
     const [user,setUser] = useUserInfo()
     const {data,isLoading,isError} = useQuery(["isUserPresent",user.email],checkIfPresent)
-    if (!user.email){
+    if (!auth.currentUser){
         return <Navigate to="/" replace/>
     }
     if (isLoading){
@@ -53,7 +54,7 @@ const AdminProtected=({children}) => {
      // eslint-disable-next-line
     const [user,setUser] = useUserInfo()
     const {data,isLoading,isError} = useQuery(["isAdmin",user.email], isAdmin)
-    if (!user.email){
+    if (!auth.currentUser){
         return <Navigate to={'/'} replace />
     }
     if (isLoading){

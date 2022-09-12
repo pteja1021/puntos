@@ -1,6 +1,7 @@
 /puntos-be/node_modules
 /puntos-be/.env
 /puntos-be/sendgrid.env
+/puntos-be/slack.env
 /puntos-be/firebase
 
 /puntos-fe/node_modules

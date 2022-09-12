@@ -108,7 +108,7 @@ const Sidebar = () => {
         <Menu
           theme="dark"
           mode="inline"
-          selectedKeys={[current]}
+          selectedKeys={[current==="/home/myRewards"||current==="/home/givenRewards"?"/home/feed":current]}
           items={
             user.email && adminData?.isAdmin
               ? items
