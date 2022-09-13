@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { filterAppraisalByDate } from "../apis/appraisalsApis";
-import { DatePicker,Space,Card } from "antd";
+import { DatePicker,Space,Card, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { useUserInfo } from "../store/userInfo";
 
@@ -48,8 +48,8 @@ export function MyRewards(){
         { feed === "loading"?
         <h1>Loading...</h1>:
         feed.appraisalsGot.map((element,index)=>{
-        return <Card title={`${element.from.name} gifted ${element.points} points to ${user.name}`} key={index} className="feed-card">
-            <p>Date : {element.createdAt}</p>
+        return <Card title={<Typography.Title level={3}>{`${element.from.name} gifted ${element.points} points to ${user.name}`}</Typography.Title>} key={index} className="feed-card">
+            <p>Date : {element.createdAt.toString().split("T").join(" ").split("Z")[0]}</p>
             <p>
                 Title : {element.title}
             </p>
