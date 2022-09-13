@@ -61,7 +61,7 @@ export function GiveAppraisal(){
                 :<Form form={form} onFinish={handleSubmit} autoComplete="off" labelCol={{ span: 8 }} wrapperCol={{ span: 14 }}>
                     <Form.Item label="Peer Name" name="to_eid" rules={[{required : true}]}>
                        <Select placeholder={"Peer Name"} >
-                                    {allEmployeesData?allEmployeesData.employees.map((element,index)=> {
+                                    {allEmployeesData.employees?allEmployeesData.employees.map((element,index)=> {
                                             if (element.email !== user.email && element.isActive)
                                                 return <Option value={element.id} key={element.id}>{`${element.name} <${element.id}>`}</Option>
                                     }):<h1>Loading...</h1>}

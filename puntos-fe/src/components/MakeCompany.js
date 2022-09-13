@@ -15,10 +15,12 @@ export function MakeCompany(){
     })
     const formItemLayout = {
         labelCol : {
-            span : 8
+            span : 10,
+            offset : 0
         },
         wrapperCol : {
-            span:16
+            span: 25,
+            offset : 1
         }
     }
 
@@ -31,11 +33,11 @@ export function MakeCompany(){
 
     const handleFinish = (values) => {
         console.log(values)
-        mutation.mutate(values, {onSuccess : navigate("../home/feed")})
+        mutation.mutate(values, {onSuccess : window.location.reload()})
     }
     
     return (
-        <Form {...formItemLayout} layout={formLayout} form={form} initialValues={{layout: formLayout,admin_name: user.name, admin_email: user.email}} onFinish={handleFinish}>
+        <Form {...formItemLayout} autoComplete={"off"} layout={formLayout} form={form} initialValues={{layout: formLayout,admin_name: user.name, admin_email: user.email}} onFinish={handleFinish}>
             
             <Form.Item label="Company Name" name="company_name" rules={[{required : true}]}>
                 <Input placeholder="Company Name" />

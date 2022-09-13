@@ -11,7 +11,7 @@ export function Feed(){
         return <h1>login not happened</h1>
     }
     return (
-        data?
+        data.company && data.company.allAppraisals?
         data.company.allAppraisals.map((element,index)=>{
             return <Card title= {<Typography.Title level={3}>{`${element.from.name} gifted ${element.points} points to ${element.to.name}`}</Typography.Title>} key={index} className="feed-card">
                 <p>Date : {element.createdAt.toString().split("T").join(" ").split("Z")[0]}</p>
