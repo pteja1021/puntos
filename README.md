@@ -1,5 +1,3 @@
-# Create a sample README content for the "puntos" project
-readme_content = """
 # Puntos 🎉
 
 Puntos is a full-stack peer recognition platform built to foster a culture of appreciation in teams and organizations. Employees can give and receive 'Puntos' to celebrate achievements, acknowledge effort, and promote positivity in the workplace.
