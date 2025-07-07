@@ -11,7 +11,6 @@ Puntos is a full-stack peer recognition platform built to foster a culture of ap
 - 🧩 Modular architecture with MVC pattern on the backend
 - 🧾 Middleware for route protection and authorization
 - ⚙️ RESTful API with role-aware endpoints
-- 📁 Firebase for hosting and real-time database
 
 ---
 
@@ -19,12 +18,11 @@ Puntos is a full-stack peer recognition platform built to foster a culture of ap
 
 ### Frontend
 - React.js
-- Pug Templates
 - ApexCharts
 - Firebase Auth
 
 ### Backend
 - Node.js
 - Express.js
-- MongoDB
+- Prisma for MySQL
 - Firebase Admin SDK
